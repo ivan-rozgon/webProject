@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<h1>Новости</h1>
+<form method="post">
+    <select name="adress">
+        <option value="melfm"> Мел </option>
+        <option value="habr_com"> Хабр </option>
+        <option value="rian_ru"> РИА </option>
+        <option value="vysokygovorit">Старше Эдды</option>
+    </select>
+    <select name="newsAmount">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+    </select>
+    <input id="reload" type="submit" value="обновить">
+</form>
+{% for url in urls %}
+<script async src="https://telegram.org/js/telegram-widget.js?22"
+        data-telegram-post={{ url }} data-width="100%" data-dark="1"></script>
+{% endfor %}
+</body>
+</html>
