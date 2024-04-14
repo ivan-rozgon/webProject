@@ -26,11 +26,22 @@
         <option value="9">9</option>
         <option value="10">10</option>
     </select>
+    <select name="theme">
+        <option value="dark"> Темная тема </option>
+        <option value="light"> Светлая тема </option>
+    </select>
+    <br>
     <input id="reload" type="submit" value="обновить">
 </form>
+{% if theme == "dark" %}
+    <div>{% set a = "1" %}</div>
+{% else %}
+    <div>{% set a = "0" %}</div>
+{% endif %}
+
 {% for url in urls %}
 <script async src="https://telegram.org/js/telegram-widget.js?22"
-        data-telegram-post={{ url }} data-width="100%" data-dark="1"></script>
+        data-telegram-post={{ url }} data-width="100%" data-dark={{ a }}></script>
 {% endfor %}
 </body>
 </html>

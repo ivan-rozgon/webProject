@@ -33,8 +33,9 @@ def index():
     else:
         channel_name = request.form["adress"]
         news_amount = int(request.form["newsAmount"])
+        theme = request.form["theme"]
         urls = get_latest_news(channel_name, news_amount)
-        return render_template("index.html", urls=urls)
+        return render_template("index.html", urls=urls, theme=theme)
 
 
 @app.route("/login", methods=["GET", "POST"])
