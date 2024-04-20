@@ -41,9 +41,9 @@
         {% endfor %}
     </p>
     <p>
-        {{ form.about.label }}<br>
-        {{ form.about(class="form-control") }}<br>
-        {% for error in form.about.errors %}
+        {{ form.channels.label }}<br>
+        {{ form.channels(class="form-control") }}<br>
+        {% for error in form.channels.errors %}
             <p class="alert alert-danger" role="alert">
                 {{ error }}
             </p>
