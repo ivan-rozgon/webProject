@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<h1>Профиль</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control", value=current_user.name) }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.channels.label }}<br>
+        {{ form.channels(class="form-control", value=current_user.channels) }}<br>
+        {% for error in form.channels.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+
+    <p><a href="{{ url_for('logout') }}">Выйти</a></p>
+</form>
+{% else %}
+<h1 class="alert alert-danger" align="center">Вы не авторизованы!</h1>
+{% endif %}
+{% endblock %}
